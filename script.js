@@ -35,6 +35,12 @@ mainDiv.addEventListener("mouseup", (event)=> {
 
 
 
+
+    
+
+
+
+
 optionsDiv = document.createElement("div")
 div.appendChild(optionsDiv)
 optionsDiv.style.display = "flex"
@@ -48,7 +54,6 @@ options.style.display = "flex"
 options.style.height = "480px"
 options.style.width = "150px"
 options.style.alignItems = "center"
-options.style.gap = "30px"
 options.style.flexWrap = "wrap"
 options.style.border = "none"
 options.style.borderRadius = "10px"
@@ -65,6 +70,36 @@ drawingMode.style.justifyContent = "space-evenly"
 drawingMode.style.marginTop = "2px"
 drawingMode.style.flexDirection = "column"
 
+
+let drawOptionsContainer = document.createElement("div")
+options.appendChild(drawOptionsContainer)
+drawOptionsContainer.style.display = "flex"
+drawOptionsContainer.style.height = "40px"
+drawOptionsContainer.style.width = "100%"
+drawOptionsContainer.style.flexDirection = "column"
+
+drawingModetitles = document.createElement("div")
+drawOptionsContainer.appendChild(drawingModetitles)
+drawingModetitles.style.display = "flex"
+drawingModetitles.style.width = "100%"
+drawingModetitles.style.height = "50%"
+drawingModetitles.style.flexDirection = "row"
+drawingModetitles.style.justifyContent = "space-evenly"
+drawingModetitles.style.gap = "20px"
+drawingModetitles.style.boxSizing = "border-box"
+
+drawingModeButtons = document.createElement("div")
+drawOptionsContainer.appendChild(drawingModeButtons)
+drawingModeButtons.style.display = "flex"
+drawingModeButtons.style.width = "100%"
+drawingModeButtons.style.height = "50%"
+drawingModeButtons.style.flexDirection = "row"
+drawingModeButtons.style.justifyContent = "space-evenly"
+drawingModeButtons.style.gap = "20px"
+drawingModeButtons.style.boxSizing = "border-box"
+
+
+
 let resolutionDiv = document.createElement("div")
 options.appendChild(resolutionDiv)
 resolutionDiv.style.display = "flex"
@@ -72,8 +107,17 @@ resolutionDiv.style.flexDirection = "column"
 resolutionDiv.style.alignItems = "center"
 resolutionDiv.style.gap = "5px"
 
+let resButtonContainer = document.createElement("div")
+resolutionDiv.appendChild(resButtonContainer)
+resButtonContainer.style.display = "flex"
+resButtonContainer.style.gap = "60px"
+resButtonContainer.style.justifyContent = "center"
+resButtonContainer.alignItems = "center"
+
+
+
 let minusButton = document.createElement("button")
-resolutionDiv.appendChild(minusButton)
+resButtonContainer.appendChild(minusButton)
 minusButton.style.height = "15px"
 minusButton.style.width = "15px"
 minusButton.style.border = "none"
@@ -81,9 +125,8 @@ minusButton.style.borderRadius = "5px"
 minusButton.style.backgroundColor = "black"
 minusButton.style.color = "white"
 minusButton.textContent = "-"
-minusButton.style.position = "absolute"
-minusButton.style.left = "830px"
-minusButton.style.top = "315px"
+minusButton.style.transform = "translateY(55px)"
+
 
 minusButton.addEventListener("click", ()=> {
     resolution.value--
@@ -104,7 +147,7 @@ resolution.max = "100"
 resolution.value = "32"
 
 let plusButton = document.createElement("button")
-resolutionDiv.appendChild(plusButton)
+resButtonContainer.appendChild(plusButton)
 plusButton.style.height = "15px"
 plusButton.style.width = "15px"
 plusButton.style.border = "none"
@@ -112,9 +155,9 @@ plusButton.style.borderRadius = "5px"
 plusButton.style.backgroundColor = "black"
 plusButton.style.color = "white"
 plusButton.textContent = "+"
-plusButton.style.position = "absolute"
-plusButton.style.left = "906px"
-plusButton.style.top = "315px"
+plusButton.style.transform = "translateY(55px)"
+
+
 
 plusButton.addEventListener("click", ()=> {
     resolution.value++
@@ -127,6 +170,7 @@ colorPickerDiv.style.display = "flex"
 colorPickerDiv.style.flexDirection = "column"
 colorPickerDiv.style.alignItems = "center"
 colorPickerDiv.style.gap = "5px"
+colorPickerDiv.style.marginTop = "20px"
 
 let colorPickerLabel = document.createElement("label")
 colorPickerDiv.appendChild(colorPickerLabel)
@@ -279,12 +323,16 @@ resetButton.style.width = "50px"
 resetButton.style.color = "white"
 resetButton.style.background = "black"
 resetButton.style.transition = "height 0.4s ease, width 0.4s ease, box-shadow 0.4s ease"
+resetButton.style.marginTop = "20px"
+
 resetButton.addEventListener("click" , Clear)
+
 resetButton.addEventListener("mouseover", ()=> {
     resetButton.style.height = "35px"
     resetButton.style.width = "57px"
     resetButton.style.boxShadow = "5px 5px 8px black"
 })
+
 resetButton.addEventListener("mouseout", ()=> {
     resetButton.style.height = "30px"
 resetButton.style.width = "50px"
@@ -363,6 +411,7 @@ eraser.type = "radio"
 eraser.name = "mode"
 eraser.style.width = "15px"
 eraser.style.height = "15px"
+
 let resolutionSlider = document.createElement("input")
 resolutionDiv.appendChild(resolutionSlider)
 resolutionSlider.type = "range"
@@ -375,38 +424,38 @@ resolutionSlider.addEventListener("input", ()=> {
 })
 
 let dragOption = document.createElement("input")
-document.body.appendChild(dragOption)
+drawingModeButtons.appendChild(dragOption)
 dragOption.type = "radio"
 dragOption.name = "drawingSelector"
-dragOption.style.position = "absolute"
 dragOption.style.height = "15px"
 dragOption.style.width = "15px"
-dragOption.style.top = "260px"
-dragOption.style.left = "835px"
+
+
+
+
+
+
 
 let dragOptionName = document.createElement("p")
-resolutionDiv.appendChild(dragOptionName)
+drawingModetitles.appendChild(dragOptionName)
 dragOptionName.textContent = "Drag"
-dragOptionName.style.fontWeight = "bold"
-dragOptionName.style.position = "absolute"
-dragOptionName.style.top = "240px"
-dragOptionName.style.left = "825px"
+dragOptionName.style.fontWeight = "bold" 
+
+
 
 let hoverOptionName = document.createElement("p")
-resolutionDiv.appendChild(hoverOptionName)
+drawingModetitles.appendChild(hoverOptionName)
 hoverOptionName.textContent = "hover"
 hoverOptionName.style.fontWeight = "bold"
-hoverOptionName.style.position = "absolute"
-hoverOptionName.style.top = "240px"
-hoverOptionName.style.left = "890px"
+
 
 let hoverOption = document.createElement("input")
-document.body.appendChild(hoverOption)
+drawingModeButtons.appendChild(hoverOption)
 hoverOption.type = "radio"
 hoverOption.checked = "true"
 hoverOption.name = "drawingSelector"
-hoverOption.style.position = "absolute"
 hoverOption.style.height = "15px"
 hoverOption.style.width = "15px"
-hoverOption.style.top = "260px"
-hoverOption.style.left = "900px"
+
+
+
