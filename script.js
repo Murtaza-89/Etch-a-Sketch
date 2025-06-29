@@ -3,8 +3,9 @@ document.body.appendChild(title)
 title.style.textAlign = "center"
 title.style.marginTop = "30px"
 title.textContent = "Etch-a-sketch"
+title.style.fontFamily = '"Comic sans MS", "Luckiest Guy", cursive'
 
-document.body.style.background = "linear-gradient(to right, rgb(0, 4, 255),rgb(247, 8, 207))"
+document.body.style.background = "linear-gradient(to right, #0d0d0d,rgb(71, 70, 70), #736e6e,rgb(83, 83, 83), #403d3e)"
 
 let div = document.createElement("div")
 document.body.appendChild(div)
@@ -57,7 +58,7 @@ options.style.alignItems = "center"
 options.style.flexWrap = "wrap"
 options.style.border = "none"
 options.style.borderRadius = "10px"
-options.style.boxShadow = " 15px 20px 30px rgb(0, 0, 0)"
+options.style.boxShadow = " 20px 25px 60px rgb(0, 0, 0)"
 options.style.flexDirection = "column"
 
 let drawingMode = document.createElement("div")
@@ -143,7 +144,7 @@ resolution.type = "number"
 resolution.style.width = "50px"
 resolution.style.height = "25px"
 resolution.min = "8"
-resolution.max = "100"
+resolution.max = "64"
 resolution.value = "32"
 
 let plusButton = document.createElement("button")
@@ -416,7 +417,7 @@ let resolutionSlider = document.createElement("input")
 resolutionDiv.appendChild(resolutionSlider)
 resolutionSlider.type = "range"
 resolutionSlider.min = 8
-resolutionSlider.max = 100
+resolutionSlider.max = 64
 resolutionSlider.value = 32
 resolutionSlider.style.width = "80px"
 resolutionSlider.addEventListener("input", ()=> {
